@@ -1,0 +1,8 @@
+{
+  "name": "Lightning Kiosk Backend",
+  "description": "",
+  "image": "heroku/python",
+  "repository": "https://github.com/tempflip/kiosk-lightning-backend.git",
+  "keywords": ["python",],
+  "addons": [  ]
+}
