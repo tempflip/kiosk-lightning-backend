@@ -1,3 +1,4 @@
+'''
 from flask import Flask, send_from_directory, request, redirect
 import requests
 import urllib
@@ -56,5 +57,5 @@ def oauth():
 
 if __name__ == "__main__":
     app.run(port=PORT)
-
+'''
 
