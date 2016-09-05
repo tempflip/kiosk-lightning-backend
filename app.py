@@ -19,6 +19,7 @@ else:
 
 @app.route('/webview')
 def webview():
+	return 'hali maki'
 	return send_from_directory('', 'webview.html')
 
 
