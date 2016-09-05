@@ -1,0 +1,52 @@
+<html>
+<body>
+	<script src="jquery3.js"></script>
+	<script src="https://p-l-out-dev1-dev-ed--c.na3.visual.force.com/lightning/lightning.out.js"></script>
+
+	<script>
+		var token = null;
+		getTokenFromUrl();
+
+		if (token == null) {
+			console.log('no token passed');
+			window.location = '/auth';
+		} else {
+			insertComponent();
+		}
+
+		function insertComponent() {
+			console.log('start to load');
+			$Lightning.use(
+				'c:lout1',
+				function() {
+					$Lightning.createComponent(
+						'c:RegisterAndPay',
+						{},
+						'lDiv',
+						function(cmp) {
+							console.log('it is started.');
+						}
+					);
+				},
+				'https://p-l-out-dev1-dev-ed.lightning.force.com', 
+				token
+			);
+		}
+
+
+		function getTokenFromUrl() {
+			if (location.search == '') return;
+			token = location.search.split('?token=')[1]
+			console.log('the token is', token);
+		}
+
+	</script>
+
+	<div id="lDiv"></div>
+
+
+	<div id="imgDiv">
+	</div>
+
+</body>
+</html>
