@@ -22,7 +22,10 @@ print ('running on port ' + PORT)
 
 @app.route('/public/<filename>')
 def public(filename):
-	print filename
+	return send_from_directory('', filename)
+
+@app.route('/fonts/webfonts/<filename>')
+def fonts(filename):
 	return send_from_directory('', filename)
 
 @app.route('/webview')
