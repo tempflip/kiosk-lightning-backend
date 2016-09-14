@@ -17,9 +17,12 @@ else:
 	PORT = 8000
 
 
+@app.route('/')
+def default():
+	return 'tada'
+
 @app.route('/webview')
 def webview():
-	return 'hali maki'
 	return send_from_directory('', 'webview.html')
 
 
