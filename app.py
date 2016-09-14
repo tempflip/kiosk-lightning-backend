@@ -10,7 +10,7 @@ SECRET_KEY = '4529370390844900674';
 AUTH_URL = 'https://login.salesforce.com/services/oauth2/authorize'
 
 if ('PORT' in os.environ):
-	CALLBACK_URL = 'http://blackthorn-kiosk.herokuapp.com/';
+	CALLBACK_URL = 'https://blackthorn-kiosk.herokuapp.com/';
 	PORT = os.environ.get('PORT')
 else:
 	CALLBACK_URL = 'http://localhost:8000/oauth'
