@@ -25,6 +25,10 @@ print ('running on port ' + PORT)
 def default():
 	return 'tada'
 
+@app.route('/slds.css')
+def webview():
+	return send_from_directory('', 'salesforce-lightning-design-system.min.css')
+
 @app.route('/webview')
 def webview():
 	return send_from_directory('', 'webview.html')
