@@ -10,10 +10,12 @@ SECRET_KEY = '4529370390844900674';
 AUTH_URL = 'https://login.salesforce.com/services/oauth2/authorize'
 
 if ('PORT' in os.environ):
-	CALLBACK_URL = 'https://blackthorn-kiosk.herokuapp.com/oauth';
+	HOST_URL = 'https://blackthorn-kiosk.herokuapp.com'
+	CALLBACK_URL = HOST_URL + '/oauth';
 	PORT = os.environ.get('PORT')
 else:
-	CALLBACK_URL = 'http://localhost:8000/oauth'
+	HOST_URL = 'http://localhost:8000'
+	CALLBACK_URL = HOST_URL + '/oauth'
 	PORT = 8000
 
 print ('running on port ' + PORT)
@@ -56,7 +58,7 @@ def oauth():
 	r = requests.post('https://login.salesforce.com/services/oauth2/token', data)
 	print r.json()['access_token']
 
-	return redirect('/webview?token=' + r.json()['access_token']);
+	return redirect(HOST_URL + '/webview?token=' + r.json()['access_token']);
 
 # https://login.salesforce.com/services/oauth2/authorize?response_type=code&client_id=<your_client_id>&redirect_uri=<your_redirect_uri>
 
