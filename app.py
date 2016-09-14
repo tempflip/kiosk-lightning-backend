@@ -20,20 +20,14 @@ else:
 
 print ('running on port ' + PORT)
 
-
-@app.route('/')
-def default():
-	return 'tada'
-
-@app.route('/slds')
-def slds():
-	return send_from_directory('', 'salesforce-lightning-design-system.min.css')
-
+@app.route('/public/<filename>')
+def public(filename):
+	print filename
+	return send_from_directory('', filename)
 
 @app.route('/webview')
 def webview():
 	return send_from_directory('', 'webview.html')
-
 
 @app.route('/auth')
 def auth():
@@ -45,9 +39,6 @@ def auth():
 	}
 
 	url = AUTH_URL + '?' + urllib.urlencode(d)
-	#url += '?response_type=code'
-	#url += '&client_id=' + urllib.urlencode(CONSUMER_KEY)
-	#url += '&redirect_uri=' + urllib.urlencode(CALLBACK_URL)
 	return redirect(url)
 
 @app.route('/oauth')
@@ -65,7 +56,9 @@ def oauth():
 
 	return redirect(HOST_URL + '/webview?token=' + r.json()['access_token']);
 
-# https://login.salesforce.com/services/oauth2/authorize?response_type=code&client_id=<your_client_id>&redirect_uri=<your_redirect_uri>
+
+
+
 
 if __name__ == "__main__":
     app.run(port=PORT, host='0.0.0.0')
