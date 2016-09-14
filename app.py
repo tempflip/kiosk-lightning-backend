@@ -26,9 +26,8 @@ def default():
 	return 'tada'
 
 @app.route('/slds')
-def webview():
-	#return send_from_directory('', 'salesforce-lightning-design-system.min.css')
-	return send_from_directory('', 'webview.html')
+def slds():
+	return send_from_directory('', 'salesforce-lightning-design-system.min.css')
 
 
 @app.route('/webview')
