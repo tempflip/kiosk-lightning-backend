@@ -16,6 +16,8 @@ else:
 	CALLBACK_URL = 'http://localhost:8000/oauth'
 	PORT = 8000
 
+print ('running on port ' + PORT)
+
 
 @app.route('/')
 def default():
