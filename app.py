@@ -27,7 +27,9 @@ def default():
 
 @app.route('/slds')
 def webview():
-	return send_from_directory('', 'salesforce-lightning-design-system.min.css')
+	#return send_from_directory('', 'salesforce-lightning-design-system.min.css')
+	return send_from_directory('', 'webview.html')
+
 
 @app.route('/webview')
 def webview():
